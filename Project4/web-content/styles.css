@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #1e293b;
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+nav {
+    margin-top: 0.5rem;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #38bdf8;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    color: white;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: white;
+    color: #2563eb;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #e2e8f0;
+}
+
+.content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #1e293b;
+    color: #cbd5e1;
+    margin-top: 3rem;
+}
+
+/* ====== Dynamic Server Display ====== */
+.server-id {
+    font-size: 1.2rem;       /* slightly larger */
+    font-weight: bold;       /* emphasize the server name */
+    margin-top: 15px;        /* spacing from other content */
+    color: #0077cc;          /* highlight color */
+    text-align: center;      /* center on the page */
+}
