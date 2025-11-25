@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Weldy Project 3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>About This Project</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content">
+            <h2>Project Overview</h2>
+            <p>The Weldy Project demonstrates a distributed web infrastructure using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>HAProxy</strong>. Three backend servers host this website, while a proxy server manages load balancing and uptime monitoring.</p>
+
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>Amazon Web Services (AWS)</li>
+                <li>Docker Containers</li>
+                <li>HAProxy Load Balancer</li>
+                <li>Ubuntu Linux</li>
+            </ul>
+
+            <h3>How the Load Balancer Works</h3>
+            <p>The HAProxy proxy instance distributes requests among the three backend servers. This ensures:</p>
+            <ul>
+                <li>High availability</li>
+                <li>Improved performance</li>
+                <li>Redundancy if a server goes down</li>
+            </ul>
+
+            <h3>Server Identification</h3>
+            <p>This page (and the main page) shows which backend server is serving the request dynamically. For example:</p>
+            <p class="server-id" style="font-size: 1.2rem; font-weight: bold; margin-top: 10px; color: #0077cc;">
+                Served by: ${SERVER_NAME}
+            </p>
+            <p>This helps demonstrate that HAProxy is correctly balancing requests among the backend pool.</p>
+
+            <h3>Project Purpose</h3>
+            <p>The project teaches:</p>
+            <ul>
+                <li>Infrastructure as Code with AWS CloudFormation</li>
+                <li>Containerization and deployment with Docker</li>
+                <li>Load balancing using HAProxy</li>
+                <li>Secure instance-to-instance networking in a VPC</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Weldy Project 3</p>
+    </footer>
+</body>
+</html>
