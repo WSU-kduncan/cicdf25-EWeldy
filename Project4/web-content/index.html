@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weldy Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Weldy Project 3</h1>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Load Balanced Web Server</h2>
+            <p>This site is powered by HAProxy and Docker — ensuring high availability and smooth performance across multiple backend servers.</p>
+
+            <!-- Dynamic server identity -->
+            <p class="server-id" style="font-size: 1.2rem; font-weight: bold; margin-top: 20px; color: #0077cc;">
+                Served by: ${SERVER_NAME}
+            </p>
+
+            <a href="about.html" class="btn">Learn More</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Weldy Project — Built for CEG 3120</p>
+    </footer>
+</body>
+</html>
