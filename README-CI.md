@@ -31,10 +31,15 @@ flowchart TD
 
     H --> I[Docker Metadata Action Generates Tags<br/>latest, major, major.minor]
 
-    I --> J[Docker Build-Push Action<br/>Builds Image Using Dockerfile<br/>Project4/web-content/Dockerfile]
+    I --> J[Docker Build-Push Action<br/>Builds Image Using Dockerfile<br/>web-content/Dockerfile]
 
     J --> K[Push Image to DockerHub<br/>Repository: weldyy/weldyproject4]
 
     K --> L[Versioned Images Available<br/>Pullable by Any Deployment System]
+
+
+## Part 1 - Create a Docker container image
+
+
 
 
