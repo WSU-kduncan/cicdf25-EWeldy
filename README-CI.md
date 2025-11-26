@@ -110,6 +110,7 @@
       - major
       - major.minor 
     - To test that the image works you will want to run for example `docker pull weldyy/weldyproject4:latest` and then `docker run -p 8080:80 weldyy/weldyproject4:latest`.
+      - Note: You can also pull the major version as well as the major.minor version by just replacing the latest tag.
     - Visit `http://localhost:8080` and you should be able to see web app running.
     - [DockerHub Repo](https://hub.docker.com/repository/docker/weldyy/weldyproject4/general)
     - <img width="895" height="328" alt="image" src="https://github.com/user-attachments/assets/44dea8fe-3506-4c49-80ac-d24ec1f92a80" />
