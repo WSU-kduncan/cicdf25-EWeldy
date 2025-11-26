@@ -24,31 +24,66 @@
       - First you will want to build an image by running `docker build -t weldyy/project3-site`
       - After this we will push the image by first logging in by running `docker login` and enter your information such as username and Personal Access token (PAT)
       - Now we can push the image by running `docker push weldyy/project3-site`
+    
+## Part 2 - GitHub Actions and DockerHub
+- Creating a Personal Access Token(PAT)
+  - First you will want to login to DockerHub
+  - Second you will want to navigate as follows Account Settings > Settings > Personal Access Tokens.
+  - Third you will want to click Generate new token.
+  - Name it whatever you want and give it the permissions that you want it to have.
+  - Copy the token so that you have it as you won't be able to access it again.
+- Setting up GitHub secrets
+  - First you will want to go to settings for the repo that want secrets added to.
+  - Second go to the following Secrets and variables > Actions.
+  - Click on New repository secret.
+  - Create the following secrets.
+    - `DOCKER_USERNAME` and give it a value of whatever your DockerHub username is.
+    - `DOCKER_TOKEN` and give it the value of the PAT you created from before on DockerHub.  
+- CI with GitHub Actions
+  - The workflow trigger works when a commit is made to the main branch and only to the main branch.
+  - Explanation of workflow steps
+    - Downloads the the content
+    - Log in to DockerHub using the GitHub secrets
+    - Generate a docker image with a tag, most common is latest showing that this is the most up to date image.
+    - Builds and pushes the image to DockerHub using the [Dockerfile](web-content/Dockerfile)
+  - Values That Must Be Updated for Use in a Different Repository
+    - Dockerfile pathway because some might have their Dockefile in a different location then what mine is.
+    - Repository secrets because people don't share the same `DOCKER_USERNAME` and `DOCKER_TOKEN`
+    - Image id such as mine is `weldyy/weldyproject4` and should be changed to meet the following `dockerusername/dockerrepo`
+  - [Workflow file](.github/workflows/weldy-docker.yml)
+        - Note - I had to delete and recreate the workflow because I had everything within a Project 4 folder and it was causing issues so I had to delete and move everything around to make things work so there isn't a good history of commits.  
+- Testing & Validating
+  - Push a tag such as `latest`
+  - Visit GitHub Actions and you should see a running workflow.
+  - Ensure that it passed and then visit DockerHub to verify that the image is there.
+  - To test that the image works you will want to run for example `docker pull weldyy/weldyproject4:latest` and then `docker run -p 8080:80 weldyy/weldyproject4:latest`.
+  - Visit `http://localhost:8080` and you should be able to see web app running.
+
 ## Project Diagram 
 
- ```mermaid
-flowchart TD
+      ```mermaid
+      flowchart TD
 
-    A[Developer Edits Code<br/>Updates HTML/CSS/Files] --> B[Commit Changes Locally]
-    B --> C[Push Commit to GitHub]
+          A[Developer Edits Code<br/>Updates HTML/CSS/Files] --> B[Commit Changes Locally]
+          B --> C[Push Commit to GitHub]
 
-    C --> D[Developer Creates Git Tag<br/>ex: v1.0.0]
-    D --> E[Tag is Pushed to GitHub]
+          C --> D[Developer Creates Git Tag<br/>ex: v1.0.0]
+          D --> E[Tag is Pushed to GitHub]
 
-    E --> F[GitHub Actions Workflow Triggered<br/>on tag push]
+          E --> F[GitHub Actions Workflow Triggered<br/>on tag push]
 
-    F --> G[Checkout Repository]
-    G --> H[Authenticate to DockerHub<br/>Using Secrets]
+          F --> G[Checkout Repository]
+          G --> H[Authenticate to DockerHub<br/>Using Secrets]
 
-    H --> I[Docker Metadata Action Generates Tags<br/>latest, major, major.minor]
+          H --> I[Docker Metadata Action Generates Tags<br/>latest, major, major.minor]
 
-    I --> J[Docker Build-Push Action<br/>Builds Image Using Dockerfile<br/>web-content/Dockerfile]
+          I --> J[Docker Build-Push Action<br/>Builds Image Using Dockerfile<br/>web-content/Dockerfile]
 
-    J --> K[Push Image to DockerHub<br/>Repository: weldyy/weldyproject4]
+          J --> K[Push Image to DockerHub<br/>Repository: weldyy/weldyproject4]
 
-    K --> L[Versioned Images Available<br/>Pullable by Any Deployment System]
+          K --> L[Versioned Images Available<br/>Pullable by Any Deployment System]
 
-
-
+ ## Resources Used
+-
 
 
