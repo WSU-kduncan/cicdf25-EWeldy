@@ -9,6 +9,10 @@
   - Used the one they provided and then just modified it so that it met the brief for the project. 
 - [Mermaid Diagram](https://docs.mermaidchart.com/mermaid-oss/syntax/flowchart.html#a-node-with-text)
   - Used this file to create my diagram specifically the TD part as my diagram goes Top Down.
+- [Workflow](https://github.com/docker/metadata-action?tab=readme-ov-file#semver)
+  - References the tags section to see the git tag with its pattern and output.
+- [GitHub Secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)
+  - I referenced this to learn how to create GitHub secrets to add the credentials for DockerHub.
     
 ## Project Overview
 
