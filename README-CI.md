@@ -1,5 +1,15 @@
 # Project 4 - Continuous Integration
 
+## Resources Used
+- [Basic HTML page creation](https://www.w3schools.com/html/html_basic.asp)
+  - Used bits and pieces of some sections such as the elements, headings, and how to include a css file. I am also doing CEG4110 so I have a really good understanding in how to code websites.
+- [Basic CSS Styling](https://www.w3schools.com/css/css_intro.asp)
+  - Used bits and pieces of some sections to create a basic styling file for the websites such as margins, colors, padding, font sizes, and text alignment.
+- [YML file](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
+  - Used the one they provided and then just modified it so that it met the brief for the project. 
+- [Mermaid Diagram](https://docs.mermaidchart.com/mermaid-oss/syntax/flowchart.html#a-node-with-text)
+  - Used this file to create my diagram specifically the TD part as my diagram goes Top Down.
+    
 ## Project Overview
 
 - The goal of this project is to automate the process of building images as well as keep a record of docker images rather than constantly overriding them with the latest tag.
@@ -58,9 +68,7 @@
   - Ensure that it passed and then visit DockerHub to verify that the image is there.
   - To test that the image works you will want to run for example `docker pull weldyy/weldyproject4:latest` and then `docker run -p 8080:80 weldyy/weldyproject4:latest`.
   - Visit `http://localhost:8080` and you should be able to see web app running.
- 
-## Resources Used
-
+  
 ## Project Diagram 
 
 ```mermaid
