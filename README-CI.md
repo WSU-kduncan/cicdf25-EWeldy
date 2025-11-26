@@ -13,6 +13,18 @@
 - Semantic Versioning - Used to define different version of a docker image.
 - Repository Secrets - Securely passes the DockerHub credentials such as Docker username and PAT code to GitHub Actions.
 
+## Part 1 - Create a Docker container image
+- The website contents are index.html, about.html, and styles.css
+      - index.html can be seen at `http://174.129.6.239/` and code can be found in [Index Page](web-content/index.html)
+      - about.html can be seen at `http://174.129.6.239/about.html` and code can be found in [About Page](web-content/about.html)
+      - styless.css can be found in [Styling](web-content/styles.css)
+   - The Dockerfile uses official Apache server image, built on `httpd:2.4`, copies all content from web-content foloder into the Apache document root.
+      - The Dockerfile can be found at [Dockerfile](web-content/Dockerfile) 
+   - Instructions to build and push container image to your DockerHub repository
+      - First you will want to build an image by running `docker build -t weldyy/project3-site`
+      - After this we will push the image by first logging in by running `docker login` and enter your information such as username and Personal Access token (PAT)
+      - Now we can push the image by running `docker push weldyy/project3-site`
+   - [DockerHub Repo](https://hub.docker.com/repository/docker/weldyy/weldy/general)
 ## Project Diagram 
 
  ```mermaid
@@ -37,8 +49,6 @@ flowchart TD
 
     K --> L[Versioned Images Available<br/>Pullable by Any Deployment System]
 
-
-## Part 1 - Create a Docker container image
 
 
 
