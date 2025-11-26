@@ -68,6 +68,7 @@
   - Ensure that it passed and then visit DockerHub to verify that the image is there.
   - To test that the image works you will want to run for example `docker pull weldyy/weldyproject4:latest` and then `docker run -p 8080:80 weldyy/weldyproject4:latest`.
   - Visit `http://localhost:8080` and you should be able to see web app running.
+  - [DockerHub Repo](https://hub.docker.com/repository/docker/weldyy/weldyproject4/general)
   
 ## Project Diagram 
 
