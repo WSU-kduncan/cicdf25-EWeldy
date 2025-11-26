@@ -24,7 +24,6 @@
       - First you will want to build an image by running `docker build -t weldyy/project3-site`
       - After this we will push the image by first logging in by running `docker login` and enter your information such as username and Personal Access token (PAT)
       - Now we can push the image by running `docker push weldyy/project3-site`
-   - [DockerHub Repo](https://hub.docker.com/repository/docker/weldyy/weldy/general)
 ## Project Diagram 
 
  ```mermaid
