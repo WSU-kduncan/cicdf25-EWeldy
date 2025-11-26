@@ -58,32 +58,33 @@
   - Ensure that it passed and then visit DockerHub to verify that the image is there.
   - To test that the image works you will want to run for example `docker pull weldyy/weldyproject4:latest` and then `docker run -p 8080:80 weldyy/weldyproject4:latest`.
   - Visit `http://localhost:8080` and you should be able to see web app running.
+ 
+## Resources Used
 
 ## Project Diagram 
 
-      ```mermaid
-      flowchart TD
+```mermaid
+flowchart TD
 
-          A[Developer Edits Code<br/>Updates HTML/CSS/Files] --> B[Commit Changes Locally]
-          B --> C[Push Commit to GitHub]
+    A[Developer Edits Code<br/>Updates HTML/CSS/Files] --> B[Commit Changes Locally]
+    B --> C[Push Commit to GitHub]
 
-          C --> D[Developer Creates Git Tag<br/>ex: v1.0.0]
-          D --> E[Tag is Pushed to GitHub]
+    C --> D[Developer Creates Git Tag<br/>ex: v1.0.0]
+    D --> E[Tag is Pushed to GitHub]
 
-          E --> F[GitHub Actions Workflow Triggered<br/>on tag push]
+    E --> F[GitHub Actions Workflow Triggered<br/>on tag push]
 
-          F --> G[Checkout Repository]
-          G --> H[Authenticate to DockerHub<br/>Using Secrets]
+    F --> G[Checkout Repository]
+    G --> H[Authenticate to DockerHub<br/>Using Secrets]
 
-          H --> I[Docker Metadata Action Generates Tags<br/>latest, major, major.minor]
+    H --> I[Docker Metadata Action Generates Tags<br/>latest, major, major.minor]
 
-          I --> J[Docker Build-Push Action<br/>Builds Image Using Dockerfile<br/>web-content/Dockerfile]
+    I --> J[Docker Build-Push Action<br/>Builds Image Using Dockerfile<br/>Project4/web-content/Dockerfile]
 
-          J --> K[Push Image to DockerHub<br/>Repository: weldyy/weldyproject4]
+    J --> K[Push Image to DockerHub<br/>Repository: weldyy/weldyproject4]
 
-          K --> L[Versioned Images Available<br/>Pullable by Any Deployment System]
+    K --> L[Versioned Images Available<br/>Pullable by Any Deployment System]
 
- ## Resources Used
--
-
+      
+      
 
