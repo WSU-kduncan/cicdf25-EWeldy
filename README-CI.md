@@ -98,6 +98,8 @@
     - Context of the project root because this can change based off different repos
     - DockerHub credentials such as `DOCKER_USERNAME` and `DOCKER_TOKEN` because not every shares the same username and PAT.
   - [YML file](.github/workflows/weldy-docker.yml)
+  - <img width="895" height="328" alt="image" src="https://github.com/user-attachments/assets/44dea8fe-3506-4c49-80ac-d24ec1f92a80" />
+
 
 - Testing & Validating
   - Push a tag such as `v1.1.0`
