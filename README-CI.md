@@ -71,6 +71,7 @@
   - [DockerHub Repo](https://hub.docker.com/repository/docker/weldyy/weldyproject4/general)
 
 ## Part 3 -  Semantic Versioning
+- Note: I added this part to README-CI.md because when I checked the submission section it doesn't show anything about needing README-CD.md yet, although in the tast it says to put the documentation of Part 3 in CD. I just have both just incase
 - Generating Tags
   - To see tags in a git repository you can run `git tag` which will list all tags in the repo.
   - To generate a tag in a git repository run `git tag -a v1.0.0` and replace `1.0.0` with whatever version you want and if you want to a message run `git tag -a v1.0.0 -m "Stranger Things Season 5 is coming out."`
