@@ -3,7 +3,7 @@ name: Build & Push Docker Image
 on:
   push:
     tags:
-      - 'v*.*.*'   # trigger ONLY on semantic version tags
+      - 'v*.*.*'
 
 jobs:
   build:
@@ -32,8 +32,8 @@ jobs:
       - name: Build & Push to DockerHub
         uses: docker/build-push-action@v5
         with:
-          context: web-content
-          file: ./Dockerfile
+          context: .               # <-- BUILD FROM ROOT
+          file: ./Dockerfile       # <-- DOCKERFILE IN ROOT
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
