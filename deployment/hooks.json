@@ -1,0 +1,18 @@
+[
+  {
+    "id": "weldy-refresh",
+    "execute-command": "/home/ubuntu/deployment/refresh.sh",
+    "command-working-directory": "/home/ubuntu/deployment",
+    "response-message": "Weldy refresh triggered",
+    "trigger-rule": {
+      "match": {
+        "type": "payload-hash-sha256",
+        "secret": "Weldy",
+        "parameter": {
+          "source": "header",
+          "name": "X-Hub-Signature-256"
+        }
+      }
+    }
+  }
+]
