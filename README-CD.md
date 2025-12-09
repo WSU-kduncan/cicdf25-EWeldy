@@ -34,3 +34,27 @@
       - The refresh.sh file stops and removes old containers, pulls the latest image from DockerHub, runs the new image in detached mode. 
     - To verify that the script worked run `bash deployment/refresh.sh` and then `docker ps`. You should see a new image.
     - [refresh.sh](deployment/refresh.sh)
+
+## Part 2 - Listen
+1. Configuring a `webhook` Listener on EC2 Instance
+    - How to install [adnanh's `webhook`](https://github.com/adnanh/webhook) to the EC2 instance
+    - How to verify successful installation
+    - Summary of the `webhook` definition file
+    - How to verify definition file was loaded by `webhook`
+    - How to verify `webhook` is receiving payloads that trigger it
+      - how to monitor logs from running `webhook`
+      - what to look for in `docker` process views
+    - **LINK to definition file** in repository
+2. Configure a `webhook` Service on EC2 Instance 
+    - Summary of `webhook` service file contents
+    - How to `enable` and `start` the `webhook` service
+    - How to verify `webhook` service is capturing payloads and triggering bash script
+    - **LINK to service file** in repository
+
+## Part 3 - Send a Payload
+1. Configuring a Payload Sender
+    - Justification for selecting GitHub or DockerHub as the payload sender
+    - How to enable your selection to send payloads to the EC2 `webhook` listener
+    - Explain what triggers will send a payload to the EC2 `webhook` listener
+    - How to verify a successful payload delivery
+    - How to validate that your webhook *only triggers* when requests are coming from appropriate sources (GitHub or DockerHub)
