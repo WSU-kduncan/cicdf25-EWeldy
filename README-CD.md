@@ -71,8 +71,19 @@
 
 ## Part 3 - Send a Payload
 1. Configuring a Payload Sender
-    - Justification for selecting GitHub or DockerHub as the payload sender
-    - How to enable your selection to send payloads to the EC2 `webhook` listener
-    - Explain what triggers will send a payload to the EC2 `webhook` listener
-    - How to verify a successful payload delivery
-    - How to validate that your webhook *only triggers* when requests are coming from appropriate sources (GitHub or DockerHub)
+    - I am using GitHub as my Payload Sender because the `webhook` will only trigger when GitHub Actions is successful, Has built in signature verification, and the main thing is that it was easier to understand with the `webhook` section where I just enter my payload URL and then the secret.
+    - How to enable `webook` on GitHub
+        -  First you will want to go to your desired repo and then go as follows `Settings > Webhooks > Add Webhook`
+        -  After finding this you will enter a `Payload URL` for example `http://YOUR-EC2-PUBLIC-IP:9000/hooks/<hooks.json-id>
+        -  Then select a content type more than likely `application.json`
+        -  Enter your desired Secret
+        -  Select was events you want the `webhook to send you`
+    - Triggers that will send a payload
+        - A GitHub Actions completion
+        - A push to the repo
+        - A tag push
+    - To verify a successful payload delivery you will want to go to your repo and then `GitHub → Webhooks → Recent Deliveries`, you should see checkmarks and workflows complete.
+    - To validate that the webhook only triggers when request comes from GitHub you see something similar to `rule match: false – rejecting request` because the listener checks for the Header of `X-Hub-Signature-256` and then the Secret which for my case is `Weldy`, if these do not match then it is rejected.
+  
+## Resources
+-
