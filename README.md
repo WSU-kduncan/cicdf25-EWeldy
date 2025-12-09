@@ -1,6 +1,6 @@
-## Projects 4 & 5 for CEG3120
+# Projects 4 & 5 for CEG3120
 
-# Repository Summary
+## Repository Summary
 - [.github/workflows folder](.github/workflows)
   - This folder contains the github actions yml file that builds and pushes docker images.
 - [Deployment folder](deployment)
