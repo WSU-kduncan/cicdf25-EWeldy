@@ -119,13 +119,3 @@ flowchart LR
 
     F --> G[Running Application<br/>Updated Container]
 
-    %% Optional: What’s Not Working
-    subgraph Issues[If Applicable: Problems]
-        H[Webhook Not Triggering<br/>Port Closed / Wrong URL]
-        I[EC2 Service Not Starting<br/>systemd Misconfiguration]
-        J[DockerHub Pull Fails<br/>Bad Credentials or Tag]
-    end
-
-    D -.-> H
-    E -.-> I
-    C -.-> J
