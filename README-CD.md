@@ -60,7 +60,8 @@
     - To verify that the container is serving the web application run `docker ps` and then `curl http://localhost`. You should see that an image is created and should be able to visit the website on the localhost.
 4. Scripting Container Application Refresh
     - Description of the bash script
-      - The refresh.sh file stops and removes old containers, pulls the latest image from DockerHub, runs the new image in detached mode. 
+      - The refresh.sh file stops and removes old containers, pulls the latest image from DockerHub, runs the new image in detached mode.
+      - After this you will want to make sure the bash script is executable by running `sudo chmod +x /home/ubuntu/deployment/refresh.sh` and then replacing the information to match where the file is located.
     - To verify that the script worked run `bash deployment/refresh.sh` and then `docker ps`. You should see a new image.
     - [refresh.sh](deployment/refresh.sh)
 
