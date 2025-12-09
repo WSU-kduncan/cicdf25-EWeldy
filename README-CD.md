@@ -1,5 +1,26 @@
 # Continous Deployment
 
+## Project Overview
+- The goal of this project is to create a Continous Deployment pipeline that updates docker images and then serves them on an AWS EC2 instance automatically using a bash script, webhook, and webhook service.
+- The tools used to create this project are:
+    - GitHub Actions
+        - This is used to build and push docker images. 
+    - DockerHub
+        - Used to store docker images. 
+    - GitHub Webhooks
+        - Used to send a signed payload to the EC2 instance after a successful Action. 
+    - adnanh/webhook
+        - Listens to the EC2 instance for incoming payloads.
+    - systemd (webhook.service)
+        - Used to run the webhook as a service. 
+    - AWS EC2 Instance
+        - Host the running docker container and executes the refresh.sh bash script.
+    - refresh.sh
+        - A bash script used to pull the latest image from the DockerHub repo, stop and removes the old container, and then creates a new container for the latest image.
+
+## Resources
+-
+
 ## Part 1 - Script a Refresh
 
 1. EC2 Instance Details
@@ -84,6 +105,27 @@
         - A tag push
     - To verify a successful payload delivery you will want to go to your repo and then `GitHub → Webhooks → Recent Deliveries`, you should see checkmarks and workflows complete.
     - To validate that the webhook only triggers when request comes from GitHub you see something similar to `rule match: false – rejecting request` because the listener checks for the Header of `X-Hub-Signature-256` and then the Secret which for my case is `Weldy`, if these do not match then it is rejected.
-  
-## Resources
--
+
+## Diagram 
+```mermaid
+flowchart LR
+    A[GitHub Repository<br/>Code + Dockerfile] --> B[GitHub Actions<br/>Build & Push Image]
+    B --> C[DockerHub Repository<br/>Tagged Images]
+
+    C --> D[GitHub Webhook<br/>Triggered on Push/Tag]
+    D --> E[EC2 Instance<br/>Webhook Listener Service]
+
+    E --> F[Bash Refresh Script<br/>Stops Old Container<br/>Pulls New Image<br/>Runs New Container]
+
+    F --> G[Running Application<br/>Updated Container]
+
+    %% Optional: What’s Not Working
+    subgraph Issues[If Applicable: Problems]
+        H[Webhook Not Triggering<br/>Port Closed / Wrong URL]
+        I[EC2 Service Not Starting<br/>systemd Misconfiguration]
+        J[DockerHub Pull Fails<br/>Bad Credentials or Tag]
+    end
+
+    D -.-> H
+    E -.-> I
+    C -.-> J
