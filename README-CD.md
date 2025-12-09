@@ -38,18 +38,36 @@
 ## Part 2 - Listen
 1. Configuring a `webhook` Listener on EC2 Instance
     - How to install [adnanh's `webhook`](https://github.com/adnanh/webhook) to the EC2 instance
-    - How to verify successful installation
+        - First run `sudo apt update` and then run `sudo apt install -y webhook` 
+    - To verify that the webhook is installed run `webhook -version`
     - Summary of the `webhook` definition file
+        - The file has an `id` of `weldy-refresh` for the webhook endpoint.
+        - `execute-command` runs the `refresh.sh` file.
+        - The working directory is the deployment folder.
+        - When the webhook is successful the output message is `Weldy refresh triggered`
+        - The webhook will only work when the secret entered is the webhook secret that was created on github which for this specifically is `Weldy`
+        - Uses the validation of `X-Hub-Signature-256`
     - How to verify definition file was loaded by `webhook`
-    - How to verify `webhook` is receiving payloads that trigger it
-      - how to monitor logs from running `webhook`
+        - To verify the file was loaded by `webhook`, you can run `webhook -hooks /home/ubuntu/deployment/hooks.json -port 9000 -verbose` which will return a message similar to `loaded 1 hook(s) from /home/ubuntu/deployment/hooks.json`
+    - To verify that the `webhook` is receiving to trigger it you should see lines of text such as `incoming HTTP request from GitHub` `rule matched` `executing /home/ubuntu/deployment/refresh.sh`, This verifying that the webhook got a payload from GitHub.
+      - To monitor logs from running `webhook' run `sudo journalctl -u webhook -f`
       - what to look for in `docker` process views
-    - **LINK to definition file** in repository
-2. Configure a `webhook` Service on EC2 Instance 
+          - `docker ps` and `docker images` in which you should see a new running container after completing the bash script.
+    - [hooks.json](deployment/hooks.json)
+2. Configure a `webhook` Service on EC2 Instance
+    - The purpose of this file is automatic execution of the webhook. 
     - Summary of `webhook` service file contents
+        - Loads the `hooks.json` file that is located in the deployment directory.
+        - the service file listens to port 9000.
+        - Uses verbose mode so logs show activity.
+        - The user is `ubuntu` to avoid execution problems.
+        - The working directory is the deployment directory.
     - How to `enable` and `start` the `webhook` service
-    - How to verify `webhook` service is capturing payloads and triggering bash script
-    - **LINK to service file** in repository
+        - First run `sudo systemctl daemon-reload`
+        - After this to `enable` the `webhook` service run `sudo systemctl enable webhook`
+        - To `start` the `webhook` service run `sudo systemctl start webhook`  
+    - To verify that the `webook` service is capturing payloads and triggering bash script run `sudo systemctl status webhook` and look for something similar to `Active: active (running)`
+    - [weldy-webhook.service](deployment/weldy-webhook.service)
 
 ## Part 3 - Send a Payload
 1. Configuring a Payload Sender
