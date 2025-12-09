@@ -16,4 +16,19 @@
 - [Dockerfile](Dockerfile)
   - This is a code that is used to build Docker images
 - [README-CI.md](REAMDE-CI.md)
+  - This document explains the Continuous Integration pipeline for the project.
+  - Users will find information about the following:
+    - How to implement GitHub Actions to push images to DockerHub.
+    - How to build docker images using a Dockerfile.
+    - How to implement semantic versioning to push tags to DockerHub.
+    - How to create and configurate GitHub secrets.
+    - A Diagram that shows the workflow of the project.
 - [README-CD.md](README-CD.md)
+  - The specifications of the EC2 Instance(AMI information, Instance type, Recommended volume size, Security Group configuration)
+  - How to install Docker on an EC2 Instance.
+  - How to create and implement a bash script to pull the lastes docker image from a DockerHub repo, as well as close and remove old containers.
+  - How to create and implement the webhook listener.
+  - How to create and implement the webhook service to run on port 9000.
+  - How to create GitHub Webhooks to send payloads to the webhook.
+  - How to verify the webhook, webhook service, and bash script run as intended.
+  - A Diagram that shows the workflow of the project.
