@@ -19,7 +19,15 @@
         - A bash script used to pull the latest image from the DockerHub repo, stop and removes the old container, and then creates a new container for the latest image.
 
 ## Resources
--
+- [Diagram](https://docs.mermaidchart.com/mermaid-oss/syntax/flowchart.html#a-node-default)
+    - Used the LR section to create the Diagram that shows each step of the project being done from the Dockerfile to the Running Application.
+- [webhook](https://github.com/adnanh/webhook)
+    - Used the section that shows how to install the webhook on ubuntu
+    - I also used the configuration section to create my hooks.json file and then just updated to match the file names and directories of my system.
+- [GitHub Webhooks](https://docs.github.com/en/webhooks/using-webhooks/creating-webhooks)
+    - Used this to learn how to create Webhooks on GitHub such as creating the steps for people to take to create a GitHub webhook. 
+- [Linux Handbook - How to Create a `systemd` Service](https://linuxhandbook.com/create-systemd-services/)
+    - Used this to create my webook.service file and then updated it to match file names and directories. 
 
 ## Part 1 - Script a Refresh
 
